@@ -1,6 +1,13 @@
 # coding=utf-8
 import os
 
+import sys
+
+# Fetching parent directory for importing core.py
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
+
 from core import HackingTool
 from core import HackingToolsCollection
 
@@ -8,10 +15,10 @@ from core import HackingToolsCollection
 class Autopsy(HackingTool):
     TITLE = "Autopsy"
     DESCRIPTION = "Autopsy is a platform that is used by Cyber Investigators.\n" \
-                  "[!] Works in any Os\n" \
-                  "[!] Recover Deleted Files from any OS & MEdia \n" \
+                  "[!] Works in any OS\n" \
+                  "[!] Recover Deleted Files from any OS & Media \n" \
                   "[!] Extract Image Metadata"
-    RUN_COMMANDS = "sudo autopsy"
+    RUN_COMMANDS = ["sudo autopsy"]
 
     def __init__(self):
         super(Autopsy, self).__init__(installable = False)
@@ -57,7 +64,7 @@ class BulkExtractor(HackingTool):
 
 
 class Guymager(HackingTool):
-    TITLE = "Disk Clone and ISO Image Aquire"
+    TITLE = "Disk Clone and ISO Image Acquire"
     DESCRIPTION = "Guymager is a free forensic imager for media acquisition."
     INSTALL_COMMANDS = ["sudo apt install guymager"]
     RUN_COMMANDS = ["sudo guymager"]

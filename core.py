@@ -1,31 +1,26 @@
-# coding=utf-8
 import os
 import sys
 import webbrowser
 from platform import system
 from traceback import print_exc
-from typing import Any
 from typing import Callable
 from typing import List
 from typing import Tuple
 
 
 def clear_screen():
-    if system() == "Linux":
-        os.system("clear")
-    if system() == "Windows":
-        os.system("cls")
+    os.system("cls" if system() == "Windows" else "clear")
 
 
 def validate_input(ip, val_range):
+    val_range = val_range or []
     try:
         ip = int(ip)
         if ip in val_range:
             return ip
-        else:
-            return None
-    except:
+    except Exception:
         return None
+    return None
 
 
 class HackingTool(object):
@@ -46,8 +41,7 @@ class HackingTool(object):
 
     def __init__(self, options = None, installable: bool = True,
                  runnable: bool = True):
-        if options is None:
-            options = []
+        options = options or []
         if isinstance(options, list):
             self.OPTIONS = []
             if installable:
@@ -74,13 +68,13 @@ class HackingTool(object):
         if self.PROJECT_URL:
             print(f"[{98}] Open project page")
         print(f"[{99}] Back to {parent.TITLE if parent is not None else 'Exit'}")
-        option_index = input("Select an option : ")
+        option_index = input("Select an option : ").strip()
         try:
             option_index = int(option_index)
             if option_index - 1 in range(len(self.OPTIONS)):
                 ret_code = self.OPTIONS[option_index - 1][1]()
                 if ret_code != 99:
-                    input("\n\nPress ENTER to continue:")
+                    input("\n\nPress ENTER to continue:").strip()
             elif option_index == 98:
                 self.show_project_page()
             elif option_index == 99:
@@ -89,10 +83,10 @@ class HackingTool(object):
                 return 99
         except (TypeError, ValueError):
             print("Please enter a valid option")
-            input("\n\nPress ENTER to continue:")
+            input("\n\nPress ENTER to continue:").strip()
         except Exception:
             print_exc()
-            input("\n\nPress ENTER to continue:")
+            input("\n\nPress ENTER to continue:").strip()
         return self.show_options(parent = parent)
 
     def before_install(self):
@@ -162,21 +156,21 @@ class HackingToolsCollection(object):
         for index, tool in enumerate(self.TOOLS):
             print(f"[{index} {tool.TITLE}")
         print(f"[{99}] Back to {parent.TITLE if parent is not None else 'Exit'}")
-        tool_index = input("Choose a tool to proceed: ")
+        tool_index = input("Choose a tool to proceed: ").strip()
         try:
             tool_index = int(tool_index)
             if tool_index in range(len(self.TOOLS)):
                 ret_code = self.TOOLS[tool_index].show_options(parent = self)
                 if ret_code != 99:
-                    input("\n\nPress ENTER to continue:")
+                    input("\n\nPress ENTER to continue:").strip()
             elif tool_index == 99:
                 if parent is None:
                     sys.exit()
                 return 99
         except (TypeError, ValueError):
             print("Please enter a valid option")
-            input("\n\nPress ENTER to continue:")
-        except Exception as e:
+            input("\n\nPress ENTER to continue:").strip()
+        except Exception:
             print_exc()
-            input("\n\nPress ENTER to continue:")
+            input("\n\nPress ENTER to continue:").strip()
         return self.show_options(parent = parent)

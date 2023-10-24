@@ -9,9 +9,10 @@
 [![HitCount](http://hits.dwyl.com/Z4nzu/hackingtool.svg)](http://hits.dwyl.com/Z4nzu/hackingtool)
 ![](https://img.shields.io/badge/platform-Linux%20%7C%20KaliLinux%20%7C%20ParrotOs-blue)
 
-#### Install Kali Linux in WIndows10 Without VirtualBox [YOUTUBE](https://youtu.be/BsFhpIDcd9I)
+#### Install Kali Linux in WIndows10 Without VirtualBox [YOUTUBE](https://youtu.be/BsFhpIDcd9I) or use Docker
 
-## Update Available V1.1.0 🚀 
+## Update Available V1.2.0 🚀 
+- [✔] Installation Bug Fixed
 - [x] Added New Tools 
     - [x] Reverse Engineering
     - [x] RAT Tools
@@ -63,14 +64,15 @@
 - Host to IP 
 - [Xerosploit](https://github.com/LionSec/xerosploit)
 - [RED HAWK (All In One Scanning)](https://github.com/Tuhinshubhra/RED_HAWK)
-- [ReconSpider(For All Scaning)](https://github.com/bhavsec/reconspider)
+- [ReconSpider(For All Scanning)](https://github.com/bhavsec/reconspider)
 - IsItDown (Check Website Down/Up)
 - [Infoga - Email OSINT](https://github.com/m4ll0k/Infoga)
 - [ReconDog](https://github.com/s0md3v/ReconDog)
 - [Striker](https://github.com/s0md3v/Striker)
 - [SecretFinder (like API & etc)](https://github.com/m4ll0k/SecretFinder)
 - [Find Info Using Shodan](https://github.com/m4ll0k/Shodanfy.py)
-- [Port Scanner - rang3r](https://github.com/floriankunushevci/rang3r)
+- [Port Scanner - rang3r (Python 2.7)](https://github.com/floriankunushevci/rang3r)
+- [Port Scanner - Ranger Reloaded (Python 3+)](https://github.com/joeyagreco/ranger-reloaded)
 - [Breacher](https://github.com/s0md3v/Breacher)
 ### Wordlist Generator
 - [Cupp](https://github.com/Mebus/cupp.git)
@@ -120,15 +122,16 @@
 - Autopsy
 - Wireshark
 - [Bulk extractor](https://github.com/simsong/bulk_extractor)
-- [Disk Clone and ISO Image Aquire](https://guymager.sourceforge.io/)
+- [Disk Clone and ISO Image Acquire](https://guymager.sourceforge.io/)
 - [Toolsley](https://www.toolsley.com/)
+- [Volatility3](https://github.com/volatilityfoundation/volatility3/)
 ### Payload creation tools
 - [The FatRat](https://github.com/Screetsec/TheFatRat)
 - [Brutal](https://github.com/Screetsec/Brutal)
 - [Stitch](https://nathanlopez.github.io/Stitch)
 - [MSFvenom Payload Creator](https://github.com/g0tmi1k/msfpc)
 - [Venom Shellcode Generator](https://github.com/r00t-3xp10it/venom)
-- [Spycam](https://github.com/thelinuxchoice/spycam)
+- [Spycam](https://github.com/indexnotfound404/spycam)
 - [Mob-Droid](https://github.com/kinghacker0/Mob-Droid)
 - [Enigma](https://github.com/UndeadSec/Enigma)
 ### Exploit framework
@@ -158,6 +161,7 @@
 - [XanXSS](https://github.com/Ekultek/XanXSS)
 - [Advanced XSS Detection Suite](https://github.com/UltimateHackers/XSStrike)
 - [RVuln](https://github.com/iinc0gnit0/RVuln)
+- [Cyclops](https://github.com/v8blink/Chromium-based-XSS-Taint-Tracking) 
 ### Steganograhy tools
 - SteganoHide
 - StegnoCracker
@@ -207,21 +211,68 @@
 
 ## Installation For Linux <img src="https://konpa.github.io/devicon/devicon.git/icons/linux/linux-original.svg" alt="linux" width="25" height="25"/></p><p align="center">
 
-#### This Tool Must Run As ROOT !!!
+
+### !! RUN HACKINGTOOL AS ROOT !! 
+
+
+## Steps are given below : 
+
+
+## Step : 1 Download hackingtool
 
     git clone https://github.com/Z4nzu/hackingtool.git
+
+## Step : 2 Give Permission to hackingtool
     
     chmod -R 755 hackingtool  
-    
+
+## Step : 3 Move to hackingtool directory
+
     cd hackingtool
+
+## Step : 4 Run hackingtool
     
-    sudo pip3 install -r requirement.txt
-    
-    bash install.sh
-    
+    sudo bash install.sh
+
+## Step : 5 For installing tools in directory
+
     sudo hackingtool
 
- After Following All Steps Just Type In Terminal **root@kaliLinux:~** **hackingtool**
+
+## Use image with Docker
+
+### Create Docker Image
+- Create the docker image 
+
+```bash
+docker buitl -t vgpastor/hackingtool .
+```
+
+### Run as container 
+
+```bash
+docker-compose up -d
+```
+
+### Interact with terminal
+
+- Get into the container 
+```bash
+docker exec -it hackingtool bash
+```
+**OUTPUT:**
+```bash
+Select Best Option : 
+
+              [1] Kali Linux / Parrot-Os (apt)
+              [2] Arch Linux (pacman)
+              [0] Exit 
+```
+Enter the options and continue.
+
+- If need open other ports you can edit the docker-compose.yml file
+- Volumes are mounted in the container to persist data and can share files between the host and the container
+
 
 #### Thanks to original Author of the tools used in hackingtool
 
@@ -238,8 +289,6 @@
 [![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&link=https://github.com/Z4nzu/)](https://github.com/Z4nzu/)
 ##### Your Favourite Tool is not in hackingtool or Suggestions Please [CLICK HERE](https://forms.gle/b235JoCKyUq5iM3t8)
 ![Z4nzu's github stats](https://github-readme-stats.vercel.app/api?username=Z4nzu&show_icons=true&title_color=fff&icon_color=79ff97&text_color=9f9f9f&bg_color=151515)
-
-<a href="https://www.buymeacoffee.com/Zinzu" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/arial-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 50px !important;"></a>
 
 #### Don't Forgot to share with Your Friends 
 ### The new Update get will soon stay updated

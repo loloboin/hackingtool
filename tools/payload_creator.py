@@ -1,4 +1,3 @@
-# coding=utf-8
 import os
 
 from core import HackingTool
@@ -49,7 +48,7 @@ class Brutal(HackingTool):
             >> Arduino Software (I used v1.6.7)
             >> TeensyDuino
             >> Linux udev rules
-            >> Copy and paste the PaensyLib folder inside your Arduino\libraries
+            >> Copy and paste the PaensyLib folder inside your Arduino libraries
     
         [!] Kindly Visit below link for Installation for Arduino 
             >> https://github.com/Screetsec/Brutal/wiki/Install-Requirements 
@@ -86,7 +85,7 @@ class Venom(HackingTool):
     TITLE = "Venom Shellcode Generator"
     DESCRIPTION = "venom 1.0.11 (malicious_server) was build to take " \
                   "advantage of \n apache2 webserver to deliver payloads " \
-                  "(LAN) using a fake webpage writen in html"
+                  "(LAN) using a fake webpage written in html"
     INSTALL_COMMANDS = [
         "sudo git clone https://github.com/r00t-3xp10it/venom.git",
         "sudo chmod -R 775 venom*/ && cd venom*/ && cd aux && sudo bash setup.sh",
